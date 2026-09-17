@@ -1,0 +1,2 @@
+import {useEffect} from 'react';
+export default function Seo({title,description,json}:{title:string;description:string;json?:object}){useEffect(()=>{document.title=title+' | Sobri';document.querySelector('meta[name="description"]')?.setAttribute('content',description);let c=document.querySelector('link[rel="canonical"]');c?.setAttribute('href',(import.meta.env.VITE_SITE_URL||'https://sobri.vercel.app')+location.pathname)},[title,description]);return json?<script type="application/ld+json">{JSON.stringify(json)}</script>:null}
